@@ -15,6 +15,6 @@ public class LookAtCameraScript : MonoBehaviour
     {
         Quaternion rotation = Quaternion.LookRotation(camera.position - transform.position, Vector3.up);
         transform.eulerAngles = new Vector3(camera.eulerAngles.x, rotation.eulerAngles.y - 180, rotation.eulerAngles.z);
-        Debug.Log(rotation + " " + transform.rotation);
+        //Debug.Log(rotation + " " + transform.rotation);
     }
 }
