@@ -34,6 +34,7 @@ public class MinigamePlayer : MonoBehaviour
             var a = Instantiate(emptyKey, position , Quaternion.identity, gameUi.transform);
             a.GetComponent<Image>().sprite = sprites[i];
             a.name = sprites[i].name;
+            a.transform.localScale = new Vector3(a.GetComponent<Image>().sprite.rect.width / 250, a.GetComponent<Image>().sprite.rect.height / 250, a.transform.localScale.z);
         }
     }
 
