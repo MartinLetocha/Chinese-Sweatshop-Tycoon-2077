@@ -19,11 +19,16 @@ public class ConveyorBelt : MonoBehaviour
     
     void Update()
     {
-        if (buttonPopup.activeSelf == true && Input.GetKeyDown(interact))
+
+        if (buttonPopup.activeSelf == true && Input.GetKeyDown(interact) && mini.gameUi.activeSelf == false)
         {
             mini.StartMinigame();
         }
-        
+        else if (Input.GetKeyDown(interact) && mini.gameUi.activeSelf == true)
+        {
+            mini.StopMinigame();
+        }
+
         
         
         

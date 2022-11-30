@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class MinigamePlayer : MonoBehaviour
     public GameObject emptyKey;
     public MinigameCreatorBase settings;
     public List<Sprite> sprites;
+    public List<GameObject> arrows;
+    public float spaceBetween;
     void Start()
     {
         
@@ -31,11 +34,22 @@ public class MinigamePlayer : MonoBehaviour
         for (int i = 0; i < sprites.Count; i++)
         {
             var position = skeleton.position + new Vector3(skeleton.GetComponent<RectTransform>().rect.width * i, 0, 0);
-            var a = Instantiate(emptyKey, position , Quaternion.identity, gameUi.transform);
+            var a = Instantiate(emptyKey, position, Quaternion.identity, gameUi.transform);
             a.GetComponent<Image>().sprite = sprites[i];
             a.name = sprites[i].name;
             a.transform.localScale = new Vector3(a.GetComponent<Image>().sprite.rect.width / 250, a.GetComponent<Image>().sprite.rect.height / 250, a.transform.localScale.z);
+            arrows.Add(a);
         }
+    }
+
+    public void StopMinigame()
+    {
+        foreach (var item in arrows)
+        {
+            Destroy(item);
+        }
+        
+        gameUi.SetActive(false);
     }
 
     private void LoadPlan()
