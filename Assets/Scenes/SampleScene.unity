@@ -543,17 +543,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b0e1466749942468a0f201c9a3b350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upKey: {fileID: 21300000, guid: c11f29dc2a1948a49a59daaace198ff6, type: 3}
-  downKey: {fileID: 21300000, guid: 81ccb3fa5f745fa4c8ff60db37f64f96, type: 3}
-  rightKey: {fileID: 21300000, guid: 62b88e16f6b581f4f837903ebd7d4737, type: 3}
-  leftKey: {fileID: 21300000, guid: 8d535d2b0774f174cb63fb342ed56003, type: 3}
+  player: {fileID: 1587252318}
+  upKey: {fileID: 21300000, guid: 8245420611ac1a34988f5a524eefafe4, type: 3}
+  downKey: {fileID: 21300000, guid: c6f88a2f60598fc499ca860ebeb45551, type: 3}
+  rightKey: {fileID: 21300000, guid: d3c1f0a62b016b04a884623ec411844f, type: 3}
+  leftKey: {fileID: 21300000, guid: e307d374117840242ad444c06817a67d, type: 3}
   skeleton: {fileID: 1233085865}
   gameUi: {fileID: 267908359}
   emptyKey: {fileID: 69736719234119462, guid: ef0ffebdffaf082419074da50b3da59d, type: 3}
   settings: {fileID: 11400000, guid: e3b7f6c8f0752b64490102432acdee61, type: 2}
   sprites: []
   arrows: []
-  spaceBetween: 0.2
+  spaceBetween: 35
+  inputs: 
+  upArrow: 273
+  downArrow: 274
+  leftArrow: 276
+  rightArrow: 275
 --- !u!114 &255335107
 MonoBehaviour:
   m_ObjectHideFlags: 0
