@@ -18,11 +18,7 @@ using System.Collections;
      public MinigameCreatorBase settings;
      public List<Arrow> arrows = new List<Arrow>();
      public float spaceBetween;
-     public KeyCode upArrow = KeyCode.UpArrow;
-     public KeyCode downArrow = KeyCode.DownArrow;
-     public KeyCode leftArrow = KeyCode.LeftArrow;
-     public KeyCode rightArrow = KeyCode.RightArrow;
- 
+
      public class Arrow
      {
          public GameObject _gameObject;
@@ -80,7 +76,6 @@ using System.Collections;
      {
          foreach (var item in arrows)
          {
-             //Destroy(item);
              Destroy(item._gameObject);
          }
          arrows.Clear();
@@ -96,16 +91,16 @@ using System.Collections;
              switch (item)
              {
                  case "down":
-                     MakeArrow(downKey, downArrow);
+                     MakeArrow(downKey, KeyCode.DownArrow);
                      break;
                  case "up":
-                     MakeArrow(upKey, upArrow);
+                     MakeArrow(upKey, KeyCode.UpArrow);
                      break;
                  case "left":
-                     MakeArrow(leftKey, leftArrow);
+                     MakeArrow(leftKey, KeyCode.LeftArrow);
                      break;
                  case "right":
-                     MakeArrow(rightKey, rightArrow);
+                     MakeArrow(rightKey, KeyCode.RightArrow);
                      break;
              }
          }
