@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
   m_Name: ToyCar
   m_EditorClassIdentifier: 
-  plan: {fileID: 0}
-  reward: 0
+  plan: {fileID: 4900000, guid: 5d76c7d5de4a0764faed3198427697ae, type: 3}
+  reward: 1
   sex: 0

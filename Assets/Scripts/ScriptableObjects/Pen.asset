@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
   m_Name: Pen
   m_EditorClassIdentifier: 
-  plan: {fileID: 0}
-  reward: 0
+  plan: {fileID: 4900000, guid: c32347f736037144fb0b20846e49ba2e, type: 3}
+  reward: 0.5
   sex: 0

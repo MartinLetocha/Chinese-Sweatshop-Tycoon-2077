@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
   m_Name: Facemask
   m_EditorClassIdentifier: 
-  plan: {fileID: 0}
-  reward: 0
+  plan: {fileID: 4900000, guid: dcca0055b6bd7304fbd4dbd669b9873d, type: 3}
+  reward: 0.5
   sex: 0

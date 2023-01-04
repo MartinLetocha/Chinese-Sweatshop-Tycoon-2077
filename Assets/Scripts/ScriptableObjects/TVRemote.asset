@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
   m_Name: TVRemote
   m_EditorClassIdentifier: 
-  plan: {fileID: 0}
-  reward: 0
+  plan: {fileID: 4900000, guid: a5a33a9f78793564c9a623fbab584337, type: 3}
+  reward: 0.75
   sex: 0

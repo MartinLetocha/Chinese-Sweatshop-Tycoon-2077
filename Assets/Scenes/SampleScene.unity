@@ -552,14 +552,12 @@ MonoBehaviour:
   gameUi: {fileID: 267908359}
   emptyKey: {fileID: 69736719234119462, guid: ef0ffebdffaf082419074da50b3da59d, type: 3}
   settings: {fileID: 11400000, guid: e3b7f6c8f0752b64490102432acdee61, type: 2}
-  sprites: []
-  arrows: []
   spaceBetween: 35
-  inputs: 
-  upArrow: 273
-  downArrow: 274
-  leftArrow: 276
-  rightArrow: 275
+  positionOffset: 0
+  Up: 273
+  Down: 274
+  Left: 276
+  Right: 275
 --- !u!114 &255335107
 MonoBehaviour:
   m_ObjectHideFlags: 0
