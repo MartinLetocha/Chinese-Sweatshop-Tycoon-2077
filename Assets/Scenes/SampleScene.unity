@@ -544,10 +544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1587252318}
-  upKey: {fileID: 21300000, guid: 8245420611ac1a34988f5a524eefafe4, type: 3}
-  downKey: {fileID: 21300000, guid: c6f88a2f60598fc499ca860ebeb45551, type: 3}
-  rightKey: {fileID: 21300000, guid: d3c1f0a62b016b04a884623ec411844f, type: 3}
-  leftKey: {fileID: 21300000, guid: e307d374117840242ad444c06817a67d, type: 3}
+  upKey: {fileID: 21300000, guid: 7b5695e3a4564b54493c1e3eed97d009, type: 3}
+  downKey: {fileID: 21300000, guid: 8924d98d11c3b0949aca67000614eb7d, type: 3}
+  rightKey: {fileID: 21300000, guid: c92293d62d99c9542a811eca3abede43, type: 3}
+  leftKey: {fileID: 21300000, guid: cc1c050e845f19f49aeb4125526fad54, type: 3}
   skeleton: {fileID: 1233085865}
   gameUi: {fileID: 267908359}
   emptyKey: {fileID: 69736719234119462, guid: ef0ffebdffaf082419074da50b3da59d, type: 3}
