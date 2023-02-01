@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +26,8 @@ public class MinigamePlayer : MonoBehaviour
     public KeyCode Left = KeyCode.LeftArrow;
     public KeyCode Right = KeyCode.RightArrow;
 
+    public TMP_Text money;
+
     public class Arrow
     {
         public GameObject GameObject;
@@ -37,9 +41,10 @@ public class MinigamePlayer : MonoBehaviour
 
     void Update()
     {
-        if (arrows.Count == 0)
+        if (arrows.Count == 0 && gameUi.activeSelf == true)
         {
             StopMinigame();
+            money.text = (Convert.ToInt32(money.text.Replace("g", "")) + settings.reward).ToString() + "g";
         }
         else if (gameUi.activeSelf == true && Input.GetKeyDown(arrows[0].Input))
         {
@@ -134,7 +139,7 @@ public class MinigamePlayer : MonoBehaviour
     {
         foreach (var item in arrows)
         {
-            Debug.Log($"{item.GameObject.transform.localPosition.x}");
+            //Debug.Log($"{item.GameObject.transform.localPosition.x}");
         }
         arrow.GameObject.transform.localPosition = arrows[0].GameObject.transform.localPosition;
         int pos = index % arrows.Count;
