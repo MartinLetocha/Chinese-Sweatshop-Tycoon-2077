@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public Animator anim;
     private Vector2 moveDirection;
+    private float lastX;
+    private float lastY;
 
     private string latest = "X";
     // Update is called once per frame
@@ -28,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        if (moveX != 0 && moveY != 0)
+
+        /*if (moveX != 0 && moveY != 0)
         {
             if (latest == "X")
             {
@@ -52,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = new Vector2(0, moveY).normalized;
             latest = "Y";
-        }
+        }*/
 
         
         Debug.Log(latest);
