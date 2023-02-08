@@ -44,7 +44,7 @@ public class MinigamePlayer : MonoBehaviour
         if (arrows.Count == 0 && gameUi.activeSelf == true)
         {
             StopMinigame();
-            money.text = (Convert.ToInt32(money.text.Replace("g", "")) + settings.reward).ToString() + "g";
+            money.text = (Convert.ToInt32(money.text.Replace("yuan", "")) + settings.reward).ToString() + "yuan";
         }
         else if (gameUi.activeSelf == true && Input.GetKeyDown(arrows[0].Input))
         {

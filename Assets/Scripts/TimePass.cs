@@ -43,7 +43,7 @@ public class TimePass : MonoBehaviour
         if (DateTime.ParseExact(dateText.text, "yyyy/dd/MM HH:mm:ss", CultureInfo.InvariantCulture) > dueRentPeriod)
         {
             dueRentPeriod = dueRentPeriod.AddDays(rentPeriod);
-            int moneyAmount = Convert.ToInt32(money.text.Replace("g", ""));
+            int moneyAmount = Convert.ToInt32(money.text.Replace("yuan", ""));
             if (moneyAmount >= moneyNeeded)
             {
                 moneyNeeded *= moneyNeededMarkiplier;
