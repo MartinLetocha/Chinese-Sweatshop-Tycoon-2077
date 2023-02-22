@@ -30,7 +30,39 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+        if(moveX != lastX && moveY != lastY)
+        {
+            lastX = moveX;
+            lastY = moveY;
 
+        }
+        else if (moveX != lastX && moveY == lastY && moveX == 0)
+        {
+            moveDirection = new Vector2(0, moveY).normalized;
+            lastX = moveX;
+        }
+        else if (moveX != lastX && moveY == lastY)
+        {
+            moveDirection = new Vector2(moveX, 0).normalized;
+            lastX = moveX;
+
+        }
+        else if (moveX == lastX && moveY != lastY && moveY == 0)
+        {
+            moveDirection = new Vector2(moveX, 0).normalized;
+            lastY = moveY;
+        }
+        else if (moveX == lastX && moveY != lastY)
+        {
+            moveDirection = new Vector2(0, moveY).normalized;
+            lastY = moveY;
+        }
+        else if (moveX == 0 && moveY == 0)
+        {
+            lastX = moveX;
+            lastY = moveY;
+            moveDirection = new Vector2(0, 0).normalized;
+        }
         /*if (moveX != 0 && moveY != 0)
         {
             if (latest == "X")
@@ -58,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }*/
 
         
-        Debug.Log(latest);
+        //Debug.Log(latest);
         /*if (moveX < 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = true;
