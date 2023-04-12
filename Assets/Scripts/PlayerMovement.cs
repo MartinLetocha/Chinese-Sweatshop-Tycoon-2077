@@ -11,12 +11,18 @@ public class PlayerMovement : MonoBehaviour
     
     public float movementSpeed;
     public Rigidbody rb;
-    public Animator anim;
     private Vector2 moveDirection;
     private float lastX;
     private float lastY;
 
     private string latest = "X";
+
+    public SpriteRenderer playerRen;
+    public Animator playerAnim;
+
+    private float _animBuffer;
+
+    private float _maxAmount = 0.05f;
     // Update is called once per frame
     void Update()
     {
@@ -30,15 +36,48 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+        playerAnim.SetBool("isWalking", true);
+        playerAnim.SetBool("isWalkingSide", false);
+        playerAnim.SetFloat("yAxis", moveY);
+
+        if (moveX != 0)
+        {
+            playerAnim.SetBool("isWalkingSide", true);
+            if (moveX < 0)
+            {
+                playerRen.flipX = true;
+            }
+            else
+            {
+                playerRen.flipX = false;
+            }
+        }
+        
+        
         if(moveX != lastX && moveY != lastY)
         {
             lastX = moveX;
             lastY = moveY;
-
+        }
+        else if (moveX == lastX && moveY == lastY)
+        {
+            if (moveX != 0)
+            {
+                playerAnim.SetBool("isWalkingSide", true);
+                if (moveX < 0)
+                {
+                    playerRen.flipX = true;
+                }
+                else
+                {
+                    playerRen.flipX = false;
+                }
+            }
         }
         else if (moveX != lastX && moveY == lastY && moveX == 0)
         {
             moveDirection = new Vector2(0, moveY).normalized;
+            playerAnim.SetBool("isWalkingSide", false);
             lastX = moveX;
         }
         else if (moveX != lastX && moveY == lastY)
@@ -55,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         else if (moveX == lastX && moveY != lastY)
         {
             moveDirection = new Vector2(0, moveY).normalized;
+            playerAnim.SetBool("isWalkingSide", false);
             lastY = moveY;
         }
         else if (moveX == 0 && moveY == 0)
@@ -62,52 +102,22 @@ public class PlayerMovement : MonoBehaviour
             lastX = moveX;
             lastY = moveY;
             moveDirection = new Vector2(0, 0).normalized;
-        }
-        /*if (moveX != 0 && moveY != 0)
-        {
-            if (latest == "X")
-            {
-                moveDirection = new Vector2(moveX, 0).normalized;
-            }
-            else if(latest == "Y")
-            {
-                moveDirection = new Vector2(0, moveY).normalized;
-            }
-        }
-        else if (moveX == 0 && moveY == 0)
-        {
-            moveDirection = new Vector2(0, 0).normalized;
-        }
-        else if (moveX != 0)
-        {
-            moveDirection = new Vector2(moveX, 0).normalized;
-            latest = "X";
-        }
-        else if (moveY != 0)
-        {
-            moveDirection = new Vector2(0, moveY).normalized;
-            latest = "Y";
-        }*/
-
-        
-        //Debug.Log(latest);
-        /*if (moveX < 0)
-        {
-            GetComponentInChildren<SpriteRenderer>().flipX = true;
-        }
-        else if(moveX > 0)
-        {
-            GetComponentInChildren<SpriteRenderer>().flipX = false;
+            playerAnim.SetBool("isWalking", false);
+            playerRen.flipX = false;
         }
 
         if (moveX == 0 && moveY == 0)
         {
-            anim.SetBool("isMoving", false); 
+            _animBuffer += Time.deltaTime;
+            if (_animBuffer >= _maxAmount)
+            {
+                playerAnim.SetBool("isWalking", false);
+            }
         }
         else
         {
-            anim.SetBool("isMoving", true);
-        }*/
+            _animBuffer = 0;
+        }
     }
 
     void Move()

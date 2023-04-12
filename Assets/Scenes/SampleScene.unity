@@ -1727,7 +1727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   rb: {fileID: 1587252322}
-  anim: {fileID: 0}
+  playerRen: {fileID: 1504736620}
+  playerAnim: {fileID: 1587252321}
 --- !u!1 &1600199508
 GameObject:
   m_ObjectHideFlags: 0

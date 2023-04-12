@@ -27,6 +27,7 @@ public class MinigamePlayer : MonoBehaviour
     public KeyCode Right = KeyCode.RightArrow;
 
     public TMP_Text money;
+    public Animator _playerAnim;
 
     public class Arrow
     {
@@ -39,6 +40,10 @@ public class MinigamePlayer : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        _playerAnim = player.GetComponent<Animator>();
+    }
     void Update()
     {
         if (arrows.Count == 0 && gameUi.activeSelf == true)
@@ -50,7 +55,7 @@ public class MinigamePlayer : MonoBehaviour
         {
             Destroy(arrows[0].GameObject);
             arrows.Remove(arrows[0]);
-            Debug.Log(arrows.Count);
+            //Debug.Log(arrows.Count);
             MoveArrows(0, -1 * positionOffset);
         }
         else if (gameUi.activeSelf == true && !Input.GetKeyDown(arrows[0].Input) && Input.anyKeyDown)
@@ -64,10 +69,32 @@ public class MinigamePlayer : MonoBehaviour
             else if (Input.GetKeyDown(Down))
                 InsertArrowAtPosition(MakeArrow(upKey, Up), 0);
         }
+
+        if (gameUi.activeSelf == false)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(Up))
+        {
+            _playerAnim.SetTrigger("BeltUp");
+        }
+        else if (Input.GetKeyDown(Down))
+        {
+            _playerAnim.SetTrigger("BeltDown");
+        }
+        else if (Input.GetKeyDown(Right))
+        {
+            _playerAnim.SetTrigger("BeltRight");
+        }
+        else if (Input.GetKeyDown(Left))
+        {
+            _playerAnim.SetTrigger("BeltLeft");
+        }
     }
 
     public void StartMinigame()
     {
+        _playerAnim.SetBool("isWalking", false);
         player.GetComponent<PlayerMovement>().enabled = false;
         gameUi.SetActive(true);
         LoadPlan();
