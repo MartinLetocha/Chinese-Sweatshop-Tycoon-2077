@@ -7,5 +7,6 @@ public class MinigameCreatorBase : ScriptableObject
 {
     public TextAsset plan;
     public float reward;
+    public int level;
     public bool sex;
 }

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plan: {fileID: 4900000, guid: c32347f736037144fb0b20846e49ba2e, type: 3}
   reward: 0.5
+  level: 1
   sex: 0

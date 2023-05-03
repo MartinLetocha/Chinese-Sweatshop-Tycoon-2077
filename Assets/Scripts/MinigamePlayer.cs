@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class MinigamePlayer : MonoBehaviour
 {
@@ -28,6 +30,8 @@ public class MinigamePlayer : MonoBehaviour
 
     public TMP_Text money;
     public Animator _playerAnim;
+
+    private Random rd = new();
 
     public class Arrow
     {
@@ -97,6 +101,9 @@ public class MinigamePlayer : MonoBehaviour
         _playerAnim.SetBool("isWalking", false);
         player.GetComponent<PlayerMovement>().enabled = false;
         gameUi.SetActive(true);
+        int playerlvl = 0; //TODO: make it take an actual value lol
+        List<MinigameCreatorBase> settingss = Resources.LoadAll<MinigameCreatorBase>("ScriptableObjects").ToList().Where(x=>x.level == playerlvl).ToList();
+        settings = settingss[rd.Next(0, settingss.Count)];
         LoadPlan();
     }
     public void StopMinigame()
