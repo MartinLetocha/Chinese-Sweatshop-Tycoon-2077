@@ -33,6 +33,8 @@ public class MinigamePlayer : MonoBehaviour
 
     private Random rd = new();
 
+    public DynamicIntro intro;
+
     public class Arrow
     {
         public GameObject GameObject;
@@ -98,12 +100,17 @@ public class MinigamePlayer : MonoBehaviour
 
     public void StartMinigame()
     {
-        _playerAnim.SetBool("isWalking", false);
-        player.GetComponent<PlayerMovement>().enabled = false;
-        gameUi.SetActive(true);
         int playerlvl = 0; //TODO: make it take an actual value lol
         List<MinigameCreatorBase> settingss = Resources.LoadAll<MinigameCreatorBase>("ScriptableObjects").ToList().Where(x=>x.level == playerlvl).ToList();
         settings = settingss[rd.Next(0, settingss.Count)];
+        intro.StartIntro(settings.plan.name);
+    }
+
+    public void RealStart()
+    {
+        _playerAnim.SetBool("isWalking", false);
+        player.GetComponent<PlayerMovement>().enabled = false;
+        gameUi.SetActive(true);
         LoadPlan();
     }
     public void StopMinigame()
