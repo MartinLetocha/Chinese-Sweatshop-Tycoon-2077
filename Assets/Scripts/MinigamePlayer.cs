@@ -100,8 +100,13 @@ public class MinigamePlayer : MonoBehaviour
 
     public void StartMinigame()
     {
-        int playerlvl = 0; //TODO: make it take an actual value lol
-        List<MinigameCreatorBase> settingss = Resources.LoadAll<MinigameCreatorBase>("ScriptableObjects").ToList().Where(x=>x.level == playerlvl).ToList();
+        int playerlvl = PlayerPrefs.GetInt("skill");
+        List<MinigameCreatorBase> settingss = new List<MinigameCreatorBase>();
+        for (int i = 0; i <= playerlvl; i++)
+        {
+            settingss.AddRange(Resources.LoadAll<MinigameCreatorBase>("ScriptableObjects").ToList().Where(x=>x.level == i).ToList());
+        }
+        
         settings = settingss[rd.Next(0, settingss.Count)];
         intro.StartIntro(settings.plan.name);
     }
