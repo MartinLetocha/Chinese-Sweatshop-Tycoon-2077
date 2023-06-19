@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
   m_Name: TVRemote
   m_EditorClassIdentifier: 
-  plan: {fileID: 4900000, guid: a5a33a9f78793564c9a623fbab584337, type: 3}
+  plan: {fileID: 4900000, guid: 6caeb8afcf4f8a14c8f78e6e727d9930, type: 3}
   reward: 0.75
+  level: 0
+  images:
+  - {fileID: -2117683016, guid: f64ff6e6098070a458a47ec18598c210, type: 3}
+  - {fileID: 887241007, guid: f64ff6e6098070a458a47ec18598c210, type: 3}
+  - {fileID: 475659054, guid: f64ff6e6098070a458a47ec18598c210, type: 3}
+  - {fileID: -1578372393, guid: f64ff6e6098070a458a47ec18598c210, type: 3}
+  - {fileID: -643726677, guid: f64ff6e6098070a458a47ec18598c210, type: 3}
   sex: 0

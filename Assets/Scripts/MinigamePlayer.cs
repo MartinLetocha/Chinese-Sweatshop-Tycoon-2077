@@ -34,7 +34,9 @@ public class MinigamePlayer : MonoBehaviour
     private Random rd = new();
 
     public DynamicIntro intro;
-
+    public Image sprite;
+    private int spriteIndex = 0;
+    private int fakes = 0;
     public class Arrow
     {
         public GameObject GameObject;
@@ -55,7 +57,11 @@ public class MinigamePlayer : MonoBehaviour
         if (arrows.Count == 0 && gameUi.activeSelf == true)
         {
             StopMinigame();
-            money.text = (Convert.ToInt32(money.text.Replace("yuan", "")) + settings.reward).ToString() + "yuan";
+            float.TryParse(money.text.Replace("yuan", ""), out float cash);
+            cash += settings.reward;
+            money.text = cash.ToString() + "yuan";
+            //money.text = (Convert.ToInt32(money.text.Replace("yuan", "")) + settings.reward).ToString() + "yuan";
+            StartMinigame(false); //for sake of loop
         }
         else if (gameUi.activeSelf == true && Input.GetKeyDown(arrows[0].Input))
         {
@@ -63,6 +69,15 @@ public class MinigamePlayer : MonoBehaviour
             arrows.Remove(arrows[0]);
             //Debug.Log(arrows.Count);
             MoveArrows(0, -1 * positionOffset);
+            if (settings.images.Count != 0 && fakes == 0)
+            {
+                spriteIndex++;
+                sprite.sprite = settings.images[spriteIndex];
+            }
+            else if (fakes > 0)
+            {
+                fakes--;
+            }
         }
         else if (gameUi.activeSelf == true && !Input.GetKeyDown(arrows[0].Input) && Input.anyKeyDown)
         {
@@ -98,8 +113,10 @@ public class MinigamePlayer : MonoBehaviour
         }
     }
 
-    public void StartMinigame()
+    public void StartMinigame(bool intr)
     {
+        sprite.gameObject.SetActive(false);
+        spriteIndex = 0;
         int playerlvl = PlayerPrefs.GetInt("skill");
         List<MinigameCreatorBase> settingss = new List<MinigameCreatorBase>();
         for (int i = 0; i <= playerlvl; i++)
@@ -108,7 +125,20 @@ public class MinigamePlayer : MonoBehaviour
         }
         
         settings = settingss[rd.Next(0, settingss.Count)];
-        intro.StartIntro(settings.plan.name);
+        if (settings.images.Count != 0)
+        {
+            sprite.gameObject.SetActive(true);
+            sprite.sprite = settings.images[spriteIndex];
+        }
+
+        if (intr)
+        {
+            intro.StartIntro(settings.plan.name);
+        }
+        else
+        {
+            RealStart();
+        }
     }
 
     public void RealStart()
@@ -183,6 +213,7 @@ public class MinigamePlayer : MonoBehaviour
     
     private void InsertArrowAtPosition(Arrow arrow, int index)
     {
+        fakes++;
         foreach (var item in arrows)
         {
             //Debug.Log($"{item.GameObject.transform.localPosition.x}");

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c35c623b81e254daf4b6bd7e836db4, type: 3}
+  m_Name: Radio
+  m_EditorClassIdentifier: 
+  plan: {fileID: 4900000, guid: 3715dfa68def0b04d8cf219a6bdb5493, type: 3}
+  reward: 0
+  level: 0
+  images:
+  - {fileID: -679853335, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: 2114053638, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: -794394567, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: 25666620, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: -624756350, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: 796465157, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: -123399284, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  - {fileID: 696044847, guid: 63981add717eef347af9936cfb5ae166, type: 3}
+  sex: 0

@@ -10,11 +10,9 @@ public class ConveyorBelt : MonoBehaviour
     public float range;
     public KeyCode interact = KeyCode.E;
     public MinigamePlayer mini;
-    private float lastRad;// remove after debug
     void Start()
     {
         buttonPopup.SetActive(false);
-        lastRad = GetComponent<SphereCollider>().radius;
     }
     
     void Update()
@@ -22,19 +20,12 @@ public class ConveyorBelt : MonoBehaviour
 
         if (buttonPopup.activeSelf == true && Input.GetKeyDown(interact) && mini.gameUi.activeSelf == false)
         {
-            mini.StartMinigame();
+            mini.StartMinigame(true);
         }
         else if (Input.GetKeyDown(interact) && mini.gameUi.activeSelf == true)
         {
             mini.StopMinigame();
         }
-
-        
-        
-        
-        
-        //move to start later
-        GetComponent<SphereCollider>().radius = range + lastRad;
     }
 
     private void OnTriggerStay(Collider other)
