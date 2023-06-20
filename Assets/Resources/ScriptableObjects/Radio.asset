@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Radio
   m_EditorClassIdentifier: 
   plan: {fileID: 4900000, guid: 3715dfa68def0b04d8cf219a6bdb5493, type: 3}
-  reward: 0
+  reward: 1
   level: 0
   images:
   - {fileID: -679853335, guid: 63981add717eef347af9936cfb5ae166, type: 3}

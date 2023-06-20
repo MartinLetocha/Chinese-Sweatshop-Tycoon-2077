@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MotherBoard
   m_EditorClassIdentifier: 
   plan: {fileID: 4900000, guid: f64c2c19d8355214397f95be61134be1, type: 3}
-  reward: 5
+  reward: 20
   level: 0
   images:
   - {fileID: 1006198228, guid: a1dd9bb767f2cac42a355e62e7205c9d, type: 3}

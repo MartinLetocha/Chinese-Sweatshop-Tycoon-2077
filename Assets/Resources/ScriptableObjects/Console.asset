@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Console
   m_EditorClassIdentifier: 
   plan: {fileID: 4900000, guid: 152786f0744aadf44ae1e5b804b6cc1c, type: 3}
-  reward: 5
+  reward: 0.9
   level: 0
   images:
   - {fileID: 1283613090, guid: b158825e4880a5646a191821ef6a37b4, type: 3}

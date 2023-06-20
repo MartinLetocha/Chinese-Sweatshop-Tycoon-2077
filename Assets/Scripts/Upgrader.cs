@@ -14,6 +14,11 @@ public class Upgrader : MonoBehaviour
     private int skillLevel = 0;
     public TMP_Text _btnText;
     private int maxLevel = 1; //change depending on highest level in scriptable objects
+    private int passiveGainLevel = 0;
+    private const decimal pGperLevel = 2;
+    public TimePass timePass;
+    public TMP_Text gainText;
+    public TMP_Text gainButtonText;
     void Start()
     {
         buttonPopup.SetActive(false);
@@ -21,6 +26,7 @@ public class Upgrader : MonoBehaviour
         PlayerPrefs.SetInt("skill", 0);
         skillLevel = 0;
         _btnText.text = $"Skill level: {skillLevel}";
+        gainButtonText.text = $"Upgrade ({((passiveGainLevel + 1) * pGperLevel * 2):0.#} yuan)";
     }
     
     void Update()
@@ -48,6 +54,22 @@ public class Upgrader : MonoBehaviour
         PlayerPrefs.SetInt("skill", skillLevel+1);
         skillLevel++;
         _btnText.text = $"Skill level: {skillLevel}";
+    }
+
+    public void PassiveGain()
+    {
+        decimal howMuch = (passiveGainLevel + 1) * pGperLevel;
+        decimal cash = timePass.CheckCash();
+        if (cash - howMuch * 2 <= 0)
+        {
+            return;
+        }
+        passiveGainLevel++;
+        timePass.StartGiving(howMuch);
+        timePass.moneySpent += howMuch * 2;
+        timePass.ChangeCash(-(howMuch * 2), false);
+        gainText.text = $"Passive gain: {passiveGainLevel} (+ {howMuch:0.#} yuan at 6am)";
+        gainButtonText.text = $"Upgrade ({((passiveGainLevel + 1) * pGperLevel * 2):0.#} yuan)";
     }
     
 

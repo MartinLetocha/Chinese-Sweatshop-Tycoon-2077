@@ -133,7 +133,7 @@ public class MinigamePlayer : MonoBehaviour
 
         if (intr)
         {
-            intro.StartIntro(settings.plan.name);
+            intro.StartIntro("Work start!");
         }
         else
         {
